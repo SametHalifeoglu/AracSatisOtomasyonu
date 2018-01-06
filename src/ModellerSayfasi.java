@@ -1,19 +1,22 @@
 
+import Fabrika_DB.DB;
 import Fabrika_Method.ArkaPlanMethod;
 import Fabrika_Method.FiyatResmiCek;
-import Fabrika_Method.PaneDoldurma;
+import Fabrika_Method.LabelDoldurma;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.RenderingHints;
 import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 
 public class ModellerSayfasi extends javax.swing.JFrame {
 
     ArkaPlanMethod ark = new ArkaPlanMethod();
-    PaneDoldurma pd = new PaneDoldurma();
+    LabelDoldurma pd = new LabelDoldurma();
     public static int modeldurum ;
     ArrayList<String> ls = new ArrayList<>();
     public static boolean combodurum = false;
@@ -23,6 +26,7 @@ public class ModellerSayfasi extends javax.swing.JFrame {
         this.setIconImage(Toolkit.getDefaultToolkit().getImage("image/ev.png"));
         ark.imagee(arka, "image/arka1.jpg");
         labeldoldur();
+        labelresimdoldur();
         jComboBox1.setVisible(false);
         
         
@@ -54,14 +58,10 @@ public class ModellerSayfasi extends javax.swing.JFrame {
         jLabelm6 = new javax.swing.JLabel();
         jLabelm7 = new javax.swing.JLabel();
         jLabelm8 = new javax.swing.JLabel();
-        jLabelm9 = new javax.swing.JLabel();
-        jLabelm10 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabelr8 = new javax.swing.JLabel();
         jLabelr6 = new javax.swing.JLabel();
         jLabelr5 = new javax.swing.JLabel();
-        jLabelr9 = new javax.swing.JLabel();
-        jLabelr10 = new javax.swing.JLabel();
         jLabelr7 = new javax.swing.JLabel();
         jPanelEstate = new javax.swing.JPanel();
         jLabelr11 = new javax.swing.JLabel();
@@ -103,7 +103,6 @@ public class ModellerSayfasi extends javax.swing.JFrame {
         jLabelr27 = new javax.swing.JLabel();
         jLabelm27 = new javax.swing.JLabel();
         jButton12 = new javax.swing.JButton();
-        jLabelUser = new javax.swing.JLabel();
         jToggleButtonSol = new javax.swing.JToggleButton();
         jToggleButtonSag = new javax.swing.JToggleButton();
         jLabelGiris = new javax.swing.JLabel();
@@ -225,12 +224,6 @@ public class ModellerSayfasi extends javax.swing.JFrame {
         jLabelm8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabelm8.setText("jLabel8");
 
-        jLabelm9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabelm9.setText("jLabel9");
-
-        jLabelm10.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabelm10.setText("jLabel11");
-
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel12.setText("Sedan Fiyat Listesi");
 
@@ -249,18 +242,6 @@ public class ModellerSayfasi extends javax.swing.JFrame {
         jLabelr5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabelr5MouseClicked(evt);
-            }
-        });
-
-        jLabelr9.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelr9MouseClicked(evt);
-            }
-        });
-
-        jLabelr10.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelr10MouseClicked(evt);
             }
         });
 
@@ -290,24 +271,17 @@ public class ModellerSayfasi extends javax.swing.JFrame {
                         .addGap(18, 18, 18))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelSedanLayout.createSequentialGroup()
                         .addComponent(jLabelr8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabelr9, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(33, 33, 33))
+                        .addGap(349, 349, 349))
                     .addGroup(jPanelSedanLayout.createSequentialGroup()
                         .addGroup(jPanelSedanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanelSedanLayout.createSequentialGroup()
                                 .addGap(4, 4, 4)
                                 .addComponent(jLabel12))
                             .addComponent(jLabelm8))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 183, Short.MAX_VALUE)
-                        .addComponent(jLabelm9)
-                        .addGap(297, 297, 297)))
+                        .addGap(297, 521, Short.MAX_VALUE)))
                 .addGroup(jPanelSedanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelm7)
-                    .addGroup(jPanelSedanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jLabelr10, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE)
-                        .addComponent(jLabelr7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jLabelm10))
+                    .addComponent(jLabelr7, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(81, 81, 81))
         );
         jPanelSedanLayout.setVerticalGroup(
@@ -326,15 +300,9 @@ public class ModellerSayfasi extends javax.swing.JFrame {
                     .addComponent(jLabelm6)
                     .addComponent(jLabelm7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
-                .addGroup(jPanelSedanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabelr8, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
-                    .addComponent(jLabelr10, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
-                    .addComponent(jLabelr9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jLabelr8, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanelSedanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelm10)
-                    .addComponent(jLabelm8)
-                    .addComponent(jLabelm9))
+                .addComponent(jLabelm8)
                 .addGap(39, 39, 39))
         );
 
@@ -352,8 +320,10 @@ public class ModellerSayfasi extends javax.swing.JFrame {
             }
         });
 
+        jLabelm11.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabelm11.setText("jLabel5");
 
+        jLabelm12.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabelm12.setText("jLabel6");
 
         javax.swing.GroupLayout jPanelEstateLayout = new javax.swing.GroupLayout(jPanelEstate);
@@ -686,17 +656,7 @@ public class ModellerSayfasi extends javax.swing.JFrame {
         jPanel1.add(jTabbedPane1);
         jTabbedPane1.setBounds(159, 104, 1052, 517);
 
-        jLabelUser.setBackground(new java.awt.Color(255, 255, 255));
-        jLabelUser.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelUser.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelUserMouseClicked(evt);
-            }
-        });
-        jPanel1.add(jLabelUser);
-        jLabelUser.setBounds(58, 101, 0, 56);
-
-        jToggleButtonSol.setIcon(new javax.swing.ImageIcon("C:\\Users\\java\\Documents\\NetBeansProjects\\Fabrika_Otomasyonu\\image\\solltıkk.png")); // NOI18N
+        jToggleButtonSol.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/solltıkk.png"))); // NOI18N
         jToggleButtonSol.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jToggleButtonSolActionPerformed(evt);
@@ -705,7 +665,7 @@ public class ModellerSayfasi extends javax.swing.JFrame {
         jPanel1.add(jToggleButtonSol);
         jToggleButtonSol.setBounds(90, 340, 48, 48);
 
-        jToggleButtonSag.setIcon(new javax.swing.ImageIcon("C:\\Users\\java\\Documents\\NetBeansProjects\\Fabrika_Otomasyonu\\image\\saggtıkk.png")); // NOI18N
+        jToggleButtonSag.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/saggtıkk.png"))); // NOI18N
         jToggleButtonSag.setMaximumSize(new java.awt.Dimension(48, 48));
         jToggleButtonSag.setMinimumSize(new java.awt.Dimension(48, 48));
         jToggleButtonSag.setPreferredSize(new java.awt.Dimension(48, 48));
@@ -717,7 +677,7 @@ public class ModellerSayfasi extends javax.swing.JFrame {
         jPanel1.add(jToggleButtonSag);
         jToggleButtonSag.setBounds(1229, 346, 48, 48);
 
-        jLabelGiris.setIcon(new javax.swing.ImageIcon("C:\\Users\\java\\Documents\\NetBeansProjects\\Fabrika_Otomasyonu\\src\\image\\giris.png")); // NOI18N
+        jLabelGiris.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/giris.png"))); // NOI18N
         jLabelGiris.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabelGirisMouseClicked(evt);
@@ -726,7 +686,7 @@ public class ModellerSayfasi extends javax.swing.JFrame {
         jPanel1.add(jLabelGiris);
         jLabelGiris.setBounds(1162, 2, 64, 64);
 
-        jLabelKayit.setIcon(new javax.swing.ImageIcon("C:\\Users\\java\\Documents\\NetBeansProjects\\Fabrika_Otomasyonu\\src\\image\\kayit.png")); // NOI18N
+        jLabelKayit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/kayit.png"))); // NOI18N
         jLabelKayit.setRequestFocusEnabled(false);
         jLabelKayit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -810,10 +770,6 @@ public class ModellerSayfasi extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_jToggleButtonSolActionPerformed
-
-    private void jLabelUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelUserMouseClicked
-
-    }//GEN-LAST:event_jLabelUserMouseClicked
 
     private void jLabelr27MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelr27MouseClicked
 
@@ -920,18 +876,6 @@ public class ModellerSayfasi extends javax.swing.JFrame {
         new SiparisSayfasi().setVisible(true);
         dispose();
     }//GEN-LAST:event_jLabelr7MouseClicked
-
-    private void jLabelr10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelr10MouseClicked
-        FiyatResmiCek.gelenurl = "http://fiyat.mercedes-benz.com.tr/yeni-mercedes-maybach-s-serisi--";
-        new SiparisSayfasi().setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jLabelr10MouseClicked
-
-    private void jLabelr9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelr9MouseClicked
-        FiyatResmiCek.gelenurl = "http://fiyat.mercedes-benz.com.tr/mercedes-maybach-s-serisi";
-        new SiparisSayfasi().setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jLabelr9MouseClicked
 
     private void jLabelr5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelr5MouseClicked
         FiyatResmiCek.gelenurl = "http://fiyat.mercedes-benz.com.tr/c-serisi-";
@@ -1043,11 +987,9 @@ public class ModellerSayfasi extends javax.swing.JFrame {
     public static javax.swing.JLabel jLabelGiris;
     public static javax.swing.JLabel jLabelHos;
     public static javax.swing.JLabel jLabelKayit;
-    private javax.swing.JLabel jLabelUser;
     public static javax.swing.JLabel jLabelgiris;
     public static javax.swing.JLabel jLabelkayit;
     private javax.swing.JLabel jLabelm1;
-    private javax.swing.JLabel jLabelm10;
     private javax.swing.JLabel jLabelm11;
     private javax.swing.JLabel jLabelm12;
     private javax.swing.JLabel jLabelm13;
@@ -1072,9 +1014,7 @@ public class ModellerSayfasi extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelm6;
     private javax.swing.JLabel jLabelm7;
     private javax.swing.JLabel jLabelm8;
-    private javax.swing.JLabel jLabelm9;
     private javax.swing.JLabel jLabelr1;
-    private javax.swing.JLabel jLabelr10;
     private javax.swing.JLabel jLabelr11;
     private javax.swing.JLabel jLabelr12;
     private javax.swing.JLabel jLabelr13;
@@ -1099,7 +1039,6 @@ public class ModellerSayfasi extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelr6;
     private javax.swing.JLabel jLabelr7;
     private javax.swing.JLabel jLabelr8;
-    private javax.swing.JLabel jLabelr9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanelAMG;
     private javax.swing.JPanel jPanelCabriolet;
@@ -1121,10 +1060,14 @@ public class ModellerSayfasi extends javax.swing.JFrame {
         g2.dispose();
         return resizedimage;
     }
+    
+    
+    
+    public void labelresimdoldur() {
+        
 
-    public void labeldoldur() {
-        pd.ModelDoldur(jLabelm1, jLabelm2, jLabelm3, jLabelm4, jLabelm5, jLabelm6, jLabelm7, jLabelm8, jLabelm9, jLabelm10, jLabelm11, jLabelm12, jLabelm13, jLabelm14, jLabelm15, jLabelm16, jLabelm17, jLabelm18, jLabelm19, jLabelm20, jLabelm21, jLabelm22, jLabelm23, jLabelm24, jLabelm25, jLabelm26, jLabelm27);
-
+    
+    
         pd.resimDoldur(jLabelr1);
         pd.resimDoldur(jLabelr2);
         pd.resimDoldur(jLabelr3);
@@ -1133,8 +1076,6 @@ public class ModellerSayfasi extends javax.swing.JFrame {
         pd.resimDoldur(jLabelr6);
         pd.resimDoldur(jLabelr7);
         pd.resimDoldur(jLabelr8);
-        pd.resimDoldur(jLabelr9);
-        pd.resimDoldur(jLabelr10);
         pd.resimDoldur(jLabelr11);
         pd.resimDoldur(jLabelr12);
         pd.resimDoldur(jLabelr13);
@@ -1152,7 +1093,49 @@ public class ModellerSayfasi extends javax.swing.JFrame {
         pd.resimDoldur(jLabelr25);
         pd.resimDoldur(jLabelr26);
         pd.resimDoldur(jLabelr27);
+        
 
     }
+    int k=0;
+    DB db=new DB();
+    ArrayList<String> labeldoldur=new ArrayList<>();
+    public void labeldoldur(){
+        try {
+            String query="select model_adi from model_resim";
+            ResultSet rs=db.baglan().executeQuery(query);
+            while(rs.next()){
+                labeldoldur.add(rs.getString("model_adi"));
+            }
+            jLabelm1.setText(labeldoldur.get(k));k=k+1;
+            jLabelm2.setText(labeldoldur.get(k));k=k+1;
+            jLabelm3.setText(labeldoldur.get(k));k=k+1;
+            jLabelm4.setText(labeldoldur.get(k));k=k+1;
+            jLabelm5.setText(labeldoldur.get(k));k=k+1;
+            jLabelm6.setText(labeldoldur.get(k));k=k+1;
+            jLabelm7.setText(labeldoldur.get(k));k=k+1;
+            jLabelm8.setText(labeldoldur.get(k));k=k+1;
+            jLabelm11.setText(labeldoldur.get(k));k=k+1;
+            jLabelm12.setText(labeldoldur.get(k));k=k+1;
+            jLabelm13.setText(labeldoldur.get(k));k=k+1;
+            jLabelm14.setText(labeldoldur.get(k));k=k+1;
+            jLabelm15.setText(labeldoldur.get(k));k=k+1;
+            jLabelm16.setText(labeldoldur.get(k));k=k+1;
+            jLabelm17.setText(labeldoldur.get(k));k=k+1;
+            jLabelm18.setText(labeldoldur.get(k));k=k+1;
+            jLabelm19.setText(labeldoldur.get(k));k=k+1;
+            jLabelm20.setText(labeldoldur.get(k));k=k+1;
+            jLabelm21.setText(labeldoldur.get(k));k=k+1;
+            jLabelm22.setText(labeldoldur.get(k));k=k+1;
+            jLabelm23.setText(labeldoldur.get(k));k=k+1;
+            jLabelm24.setText(labeldoldur.get(k));k=k+1;
+            jLabelm25.setText(labeldoldur.get(k));k=k+1;
+            jLabelm26.setText(labeldoldur.get(k));k=k+1;
+            jLabelm27.setText(labeldoldur.get(k));
+            
+            
+        } catch (SQLException e) {
+            System.err.println("model adlarini getirme hatası" + e.getMessage());
+        }
+    } 
 
 }

@@ -10,8 +10,7 @@ import javax.swing.JOptionPane;
 
 public class OdemeSayfası extends javax.swing.JFrame {
 
-//    public static String url = "C:\\Users\\java\\Documents\\NetBeansProjects\\Fabrika_Otomasyonu\\image\\";
-//    public static String urlwis = "C:\\Users\\Java_sabah\\Desktop\\Fabrika_Otomasyonu\\image\\";
+
     PayClass pc = new PayClass();
     ArkaPlanMethod ark = new ArkaPlanMethod();
     DB db = new DB();
@@ -117,15 +116,15 @@ public class OdemeSayfası extends javax.swing.JFrame {
             }
         });
 
-        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\java\\Documents\\NetBeansProjects\\Fabrika_Otomasyonu\\image\\bitcoin.png")); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/maestro.png"))); // NOI18N
 
-        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\java\\Documents\\NetBeansProjects\\Fabrika_Otomasyonu\\image\\paypall.png")); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/master.png"))); // NOI18N
 
-        jLabel7.setIcon(new javax.swing.ImageIcon("C:\\Users\\java\\Documents\\NetBeansProjects\\Fabrika_Otomasyonu\\image\\master.png")); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/paypall.png"))); // NOI18N
 
-        jLabel8.setIcon(new javax.swing.ImageIcon("C:\\Users\\java\\Documents\\NetBeansProjects\\Fabrika_Otomasyonu\\image\\maestro.png")); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/bitcoin.png"))); // NOI18N
 
-        jLabel9.setIcon(new javax.swing.ImageIcon("C:\\Users\\java\\Documents\\NetBeansProjects\\Fabrika_Otomasyonu\\image\\koruma.png")); // NOI18N
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/koruma.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -261,8 +260,6 @@ public class OdemeSayfası extends javax.swing.JFrame {
         PayClass.KartTarih = jTextKartTarih.getText();
         if (pc.Odeme()) {
             jPanel2.setVisible(true);
-//            jButtonKodOnay.setEnabled(true);
-//            jButtonVazgec.setEnabled(true);
             tm.schedule(is, 1000, 1000);
         }
 

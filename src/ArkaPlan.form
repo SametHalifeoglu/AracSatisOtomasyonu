@@ -31,7 +31,7 @@
     <Component class="javax.swing.JButton" name="jButton1">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\java\Documents\NetBeansProjects\Fabrika_Otomasyonu\image\cagr&#x131;.png"/>
+          <Image iconType="3" name="/image/cagr&#x131;.png"/>
         </Property>
       </Properties>
       <Events>

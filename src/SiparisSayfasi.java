@@ -154,7 +154,7 @@ public class SiparisSayfasi extends javax.swing.JFrame {
         getContentPane().add(jPanel2);
         jPanel2.setBounds(180, 100, 948, 596);
 
-        jButtonSagaKaydir.setIcon(new javax.swing.ImageIcon("C:\\Users\\java\\Documents\\NetBeansProjects\\Fabrika_Otomasyonu\\image\\saggtıkk.png")); // NOI18N
+        jButtonSagaKaydir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/saggtıkk.png"))); // NOI18N
         jButtonSagaKaydir.setPreferredSize(new java.awt.Dimension(48, 48));
         jButtonSagaKaydir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -164,7 +164,7 @@ public class SiparisSayfasi extends javax.swing.JFrame {
         getContentPane().add(jButtonSagaKaydir);
         jButtonSagaKaydir.setBounds(1138, 268, 48, 48);
 
-        jButtonSolaKaydir.setIcon(new javax.swing.ImageIcon("C:\\Users\\java\\Documents\\NetBeansProjects\\Fabrika_Otomasyonu\\image\\solltıkk.png")); // NOI18N
+        jButtonSolaKaydir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/solltıkk.png"))); // NOI18N
         jButtonSolaKaydir.setPreferredSize(new java.awt.Dimension(48, 48));
         jButtonSolaKaydir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -174,14 +174,13 @@ public class SiparisSayfasi extends javax.swing.JFrame {
         getContentPane().add(jButtonSolaKaydir);
         jButtonSolaKaydir.setBounds(120, 250, 48, 48);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\java\\Documents\\NetBeansProjects\\Fabrika_Otomasyonu\\image\\anasayfa.png")); // NOI18N
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel1MouseClicked(evt);
             }
         });
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(1070, 0, 64, 64);
+        jLabel1.setBounds(1070, 0, 0, 0);
 
         jLabelSipHos.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabelSipHos.setForeground(new java.awt.Color(255, 255, 255));

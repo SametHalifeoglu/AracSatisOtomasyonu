@@ -26,7 +26,7 @@ public class ArkaPlan extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(1366, 768));
         getContentPane().setLayout(null);
 
-        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\java\\Documents\\NetBeansProjects\\Fabrika_Otomasyonu\\image\\cagrı.png")); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/cagrı.png"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -42,9 +42,7 @@ public class ArkaPlan extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
-//        new AnaDestek().dispose();
-//        new MusteriDestek().dispose();
-        //new ArkaPlan().setVisible(false);
+
         new ModellerSayfasi().setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed

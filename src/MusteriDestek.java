@@ -80,6 +80,7 @@ public class MusteriDestek extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(400, 300));
 
         areaGelen.setColumns(20);
+        areaGelen.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         areaGelen.setRows(5);
         jScrollPane1.setViewportView(areaGelen);
 
@@ -92,7 +93,7 @@ public class MusteriDestek extends javax.swing.JFrame {
 
         jLabel1.setText("Mercedes Müşteri Hattı");
 
-        jButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\java\\Documents\\NetBeansProjects\\Fabrika_Otomasyonu\\image\\stop.png")); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/stop.png"))); // NOI18N
         jButton2.setPreferredSize(new java.awt.Dimension(32, 32));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

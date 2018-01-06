@@ -275,7 +275,7 @@ public class MusteriKayit extends javax.swing.JFrame {
                             Kullaniciİsim = rs1.getString("musAd").trim();
                             KullaniciSoyİsim = rs1.getString("musSoyadi").trim();
                         }
-                        //System.out.println("gelen ad:" + rs1.getString("musAd") + "gelen soyad:" + rs1.getString("musSoyadi"));
+                        
                     } catch (SQLException e) {
                         System.err.println("Modeller sayfasına isim yazamadım: " + e.getMessage());
                     }
@@ -289,7 +289,7 @@ public class MusteriKayit extends javax.swing.JFrame {
                                 ModellerSayfasi.combodurum = true;
                                 System.out.println("gelen değer");
                             } else {
-                                //ModellerSayfasi.jComboBox1.setVisible(false);
+                                
                             }
                         }
                     } catch (SQLException e) {
@@ -301,9 +301,6 @@ public class MusteriKayit extends javax.swing.JFrame {
                     ModellerSayfasi.jLabelgiris.setVisible(false);
                     ModellerSayfasi.jLabelkayit.setVisible(false);
                     ModellerSayfasi.jLabelHos.setText(Kullaniciİsim + " " + KullaniciSoyİsim);
-//                    ModellerSayfasi.jLabelHos.setText(rs.getString("musAd") + " " + rs.getString("musSoyadi"));
-//                    Kullaniciİsim = rs.getString("musAd");
-//                    KullaniciSoyİsim = rs.getString("musSoyadi");
                     dispose();
                     break;
                 } else if (i == (ls.size() - 1)) {

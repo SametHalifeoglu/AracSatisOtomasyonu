@@ -10,7 +10,7 @@ public class DB {
 
     final private String url = "jdbc:mysql://localhost/";
     final private String driver = "com.mysql.jdbc.Driver";
-    String dbName = "fabrika";
+    String dbName = "test";
     String dbUser = "root";
     String dbSifre = "";
     final private String encode = "?useUnicode=true&characterEncoding=utf-8";

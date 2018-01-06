@@ -149,7 +149,7 @@ public class AracTakip extends javax.swing.JFrame implements Runnable {
         getContentPane().add(jPanel2);
         jPanel2.setBounds(692, 97, 628, 465);
 
-        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\java\\Documents\\NetBeansProjects\\Fabrika_Otomasyonu\\image\\zxzx.png")); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/zxzx.png"))); // NOI18N
         jButton1.setPreferredSize(new java.awt.Dimension(64, 64));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -161,7 +161,7 @@ public class AracTakip extends javax.swing.JFrame implements Runnable {
         getContentPane().add(jProgressBar1);
         jProgressBar1.setBounds(110, 640, 1197, 41);
 
-        jButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\java\\Documents\\NetBeansProjects\\Fabrika_Otomasyonu\\image\\cıkıs.png")); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/cıkıs.png"))); // NOI18N
         jButton2.setPreferredSize(new java.awt.Dimension(64, 64));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
