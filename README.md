@@ -9,4 +9,8 @@ Proje bir otomobil firmasına ait fiyat listesi sitesinin masaüstü uygulaması
 <img src="https://github.com/SametHalifeoglu/AracSatisOtomasyonu/blob/master/resimler/kayitsayfasi.PNG" width="200" style="max-width:100%;"></a>
 <a href="https://github.com/SametHalifeoglu/AracSatisOtomasyonu/blob/master/resimler/sifremiunuttum.PNG" target="_blank">
 <img src="https://github.com/SametHalifeoglu/AracSatisOtomasyonu/blob/master/resimler/sifremiunuttum.PNG" width="200" style="max-width:100%;"></a>
+<a href="https://github.com/SametHalifeoglu/AracSatisOtomasyonu/blob/master/resimler/odemesayfasi.PNG" target="_blank">
+<img src="https://github.com/SametHalifeoglu/AracSatisOtomasyonu/blob/master/resimler/odemesayfasi.PNG" width="200" style="max-width:100%;"></a>
+<a href="https://github.com/SametHalifeoglu/AracSatisOtomasyonu/blob/master/resimler/canlidestek.PNG" target="_blank">
+<img src="https://github.com/SametHalifeoglu/AracSatisOtomasyonu/blob/master/resimler/canlidestek.PNG" width="200" style="max-width:100%;"></a>
 <hr>
